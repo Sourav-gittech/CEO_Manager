@@ -18,7 +18,7 @@ Bootstrap
 
 Usage
 
-Navigate to http://localhost:3000 in your browser.
+Navigate to https://sourav-gittech.github.io/CEO_Manager/ in your browser.
 
 Use the interface to perform CRUD operations:
 Add CEO: Fill out the form and submit.
