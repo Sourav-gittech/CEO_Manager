@@ -1,0 +1,85 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body {
+    width: 100%;
+    min-height: 100vh;
+    padding: 20px 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+img{
+    height: 200px;
+    width: 160px;
+    margin-bottom: 5px;
+}
+
+.container {
+    margin-bottom: 5px;
+    width: 60vw;
+    height: auto;
+    border: 1px solid black;
+    padding: 20px;
+    border-radius: 5px;
+}
+
+#submitBtn {
+    width: 100%;
+}
+
+.btn-view {
+    width: 70px;
+    text-transform: uppercase;
+    padding: 5px;
+}
+
+#manupulateButton {
+    display: flex;
+    justify-content: space-evenly;
+}
+
+#output {
+    height: auto;
+    background-color: rgb(229, 223, 167);
+    position: relative;
+
+    hr:last-child {
+        display: none;
+    }
+}
+
+span {
+    font-size: 12px;
+}
+
+@media screen and (max-width : 768px) {
+    #output {
+        .row .col:nth-child(2) {
+            .btn-view {
+                margin-top: 10px;
+            }
+
+            #deleteBtn {
+                right: 10px;
+            }
+
+            #viewBtn {
+                right: 100px;
+            }
+
+            #editBtn {
+                left: 10px;
+            }
+        }
+
+        hr {
+            margin-top: 10px;
+        }
+    }
+}

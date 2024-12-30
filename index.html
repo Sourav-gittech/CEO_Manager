@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CEO_Manager</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+  <link rel="stylesheet" href="style.css">
+  <link rel="icon" type="logo" href="./images/ceo.ico" />
+</head>
+
+<body>
+  <img src="./images/ceo.ico" alt="#ceo">
+  
+  <!-- add CEO  -->
+  <div class="container" id="form">
+    <form method="dialog">
+      <div class="alert my-0" id="alert"></div>
+      <div class="mb-3">
+        <label for="add_ceo_name" class="form-label">CEO Name</label>
+        <input type="text" class="form-control" id="add_ceo_name" placeholder="">
+      </div>
+      <div class="mb-3">
+        <label for="add_ceo_email" class="form-label">Email Address</label>
+        <input type="email" class="form-control" id="add_ceo_email" placeholder="" onkeyup="emailValidationOnAdd(event)">
+        <div id="emailAlert" class="form-text text-danger"></div>
+      </div>
+      <div class="mb-3">
+        <label for="add_ceo_company" class="form-label">Company Name</label>
+        <input type="text" class="form-control" id="add_ceo_company" placeholder="">
+      </div>
+      <button id="submitBtn" class="btn btn-outline-success" onclick="addCeo()" type="submit">Submit</button>
+    </form>
+  </div>
+
+  <!-- show CEOs  -->
+  <div class="container" id="output"></div>
+
+  <!-- update modal  -->
+  <div class="modal fade" id="exampleUpdateModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Update CEO</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <form method="dialog">
+            <div class="alert my-0" id="alert_modal"></div>
+            <input type="hidden" class="form-control" id="edit_ceo_id">
+            <div class="mb-3">
+              <label for="edit_ceo_name" class="form-label">CEO Name</label>
+              <input type="text" class="form-control" id="edit_ceo_name">
+            </div>
+            <div class="mb-3">
+              <label for="edit_ceo_email" class="form-label">Email Address</label>
+              <input type="email" class="form-control" id="edit_ceo_email" onkeyup="emailValidationOnUpdate(event)">
+              <div id="emailModalAlert" class="form-text text-danger"></div>
+            </div>
+            <div class="mb-3">
+              <label for="edit_ceo_company" class="form-label">Company Name</label>
+              <input type="text" class="form-control" id="edit_ceo_company">
+            </div>
+          </form>
+        </div>
+        <div class="modal-footer">
+          <button id="updateBtn" class="btn btn-outline-primary" onclick="updateCeo()" type="submit">Update</button>
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" id="closeButton">Close</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- view modal  -->
+  <div class="modal fade" id="exampleViewModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">CEO Details</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <h6>CEO Name : <span id="view_ceo_name"></span></h6>
+          <h6>Email ID : <span id="view_ceo_email"></span></h6>
+          <h6>Company : <span id="view_ceo_company"></span></h6>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</body>
+<script src="script.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+
+</html>
