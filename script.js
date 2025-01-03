@@ -130,18 +130,23 @@ const emailValidationOnUpdate = (e) => {
     }
 }
 
+// fetch single CEO
+const fetch_single_CEO = (ceo_id) => {
+    if (ceo_id >= 0 && ceo_id < ceos.length) {
+        const ceo = ceos[ceo_id];
+        return [ceo.name, ceo.email, ceo.company];
+    }
+    return null;
+}
+
 // to update CEOs
 const editCeo = (ceo_id) => {
     alertModalHide(true);
-    ceos.forEach(ceo => {
-        let id = ceos.indexOf(ceo);
-        if (id == ceo_id) {
-            edit_ceo_id.value = ceo_id;
-            edit_ceo_name.value = ceo.name;
-            edit_ceo_email.value = ceo.email;
-            edit_ceo_company.value = ceo.company;
-        }
-    });
+    let getCEO = fetch_single_CEO(ceo_id);
+    edit_ceo_id.value = ceo_id;
+    edit_ceo_name.value = getCEO[0];
+    edit_ceo_email.value = getCEO[1];
+    edit_ceo_company.value = getCEO[2];
 }
 
 const updateCeo = () => {
@@ -170,14 +175,10 @@ const updateCeo = () => {
 
 // to view a specific CEO
 const viewCeo = (ceo_id) => {
-    ceos.forEach(ceo => {
-        let id = ceos.indexOf(ceo);
-        if (id == ceo_id) {
-            view_ceo_name.innerHTML = ceo.name;
-            view_ceo_email.innerHTML = ceo.email;
-            view_ceo_company.innerHTML = ceo.company;
-        }
-    });
+    let getCEO = fetch_single_CEO(ceo_id);
+    view_ceo_name.innerHTML = getCEO[0];
+    view_ceo_email.innerHTML = getCEO[1];
+    view_ceo_company.innerHTML = getCEO[2];
 }
 
 // to delete CEOs
